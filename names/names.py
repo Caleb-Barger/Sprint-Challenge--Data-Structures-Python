@@ -10,13 +10,34 @@ f = open('names_2.txt', 'r')
 names_2 = f.read().split("\n")  # List containing 10000 names
 f.close()
 
-duplicates = []  # Return the list of duplicates in this data structure
+# duplicates = []  # Return the list of duplicates in this data structure
 
 # Replace the nested for loops below with your improvements
-for name_1 in names_1:
-    for name_2 in names_2:
-        if name_1 == name_2:
-            duplicates.append(name_1)
+
+# def get_dups(arr1, arr2):
+#     if len(arr1) == 0:
+#         return
+#     for n2 in arr2:
+#         if n2 == arr1[:-1]:
+#             duplicates.append(n2)
+#             return get_dups(arr1[:-1], arr2)
+#     return get_dups(arr1[:-1], arr2)
+
+# get_dups(names_1, names_2)
+
+# from bst import BSTNode
+# bst = BSTNode(names_1[0])
+# names_1 = n
+# for n in names_1:
+#     bst.insert(n)
+# hits max recursion depth...
+    
+duplicates = [n for n in names_2 if n in names_1]
+
+# for name_1 in names_1:
+#     for name_2 in names_2:
+#         if name_1 == name_2:
+#             duplicates.append(name_1)
 
 end_time = time.time()
 print (f"{len(duplicates)} duplicates:\n\n{', '.join(duplicates)}\n\n")
